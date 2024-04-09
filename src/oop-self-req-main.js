@@ -206,7 +206,8 @@ class Tools {
     }
 
     static bossIsActive(activeText) {
-        return !(activeText.includes("月") || activeText.includes("年"));
+        // return !(activeText.includes("月") || activeText.includes("年"));
+        return activeText == '刚刚活跃';
     }
 
     static getRandomNumber(startMs, endMs) {
