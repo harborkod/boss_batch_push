@@ -1038,7 +1038,17 @@ class BossDOMApi {
 
 
     static getJobList() {
-        return document.querySelectorAll(".job-card-wrapper");
+        let selectorAll = document.querySelectorAll(".job-card-wrapper");
+
+        // 将NodeList转换为数组
+        let jobArray = Array.from(selectorAll);
+
+        // 过滤数组，同时满足“立即沟通”和“在线”的条件
+        let filteredJobs = jobArray.filter(job =>
+           job.innerText.includes('立即沟通') && job.innerText.includes('在线')
+        );
+
+        return filteredJobs;
     }
 
     static getJobTitle(jobTag) {
